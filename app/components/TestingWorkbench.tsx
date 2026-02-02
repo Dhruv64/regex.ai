@@ -21,13 +21,13 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
 
   if (!regexData) {
     return (
-      <div className="flex items-center justify-center h-full bg-gray-50">
+      <div className="flex items-center justify-center h-full bg-gray-50 dark:bg-gray-950">
         <div className="text-center">
           <div className="text-6xl mb-4">🎯</div>
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Ready to Generate
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             Describe your pattern and we'll create the regex for you
           </p>
         </div>
@@ -36,12 +36,12 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
   }
 
   return (
-    <div className="h-full overflow-auto bg-gray-50 p-6">
+    <div className="h-full overflow-auto bg-gray-50 dark:bg-gray-950 p-6">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Pattern Display */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
           <div className="flex items-start justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
               Generated Pattern
             </h3>
             <button
@@ -70,16 +70,16 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
         <RegexTester pattern={regexData.pattern} />
 
         {/* Explanation */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Explanation
           </h3>
           <p className="text-gray-700 leading-relaxed">{regexData.explanation}</p>
         </div>
 
         {/* Breakdown */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Pattern Breakdown
           </h3>
           <div className="space-y-3">
@@ -98,8 +98,8 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
         </div>
 
         {/* Test Cases */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Suggested Test Cases
           </h3>
           <div className="space-y-2">
@@ -109,11 +109,10 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
                 className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
               >
                 <span
-                  className={`shrink-0 px-2 py-1 rounded text-xs font-medium ${
-                    testCase.shouldMatch
-                      ? 'bg-green-100 text-green-700'
-                      : 'bg-red-100 text-red-700'
-                  }`}
+                  className={`shrink-0 px-2 py-1 rounded text-xs font-medium ${testCase.shouldMatch
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-700'
+                    }`}
                 >
                   {testCase.shouldMatch ? 'Match' : 'No Match'}
                 </span>
@@ -131,8 +130,8 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
         </div>
 
         {/* Language Variations */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Language Variations
           </h3>
           <div className="space-y-3">

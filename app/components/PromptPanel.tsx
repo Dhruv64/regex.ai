@@ -52,9 +52,9 @@ export default function PromptPanel({ onGenerate }: PromptPanelProps) {
   };
 
   return (
-    <div className="flex flex-col h-full p-6 bg-white border-r border-gray-200">
+    <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 transition-colors">
       <div className="mb-4">
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
           Describe Your Pattern
         </h2>
         <p className="text-sm text-gray-600">

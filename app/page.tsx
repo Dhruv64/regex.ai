@@ -4,27 +4,17 @@
 import { useState } from 'react';
 import PromptPanel from './components/PromptPanel';
 import TestingWorkbench from './components/TestingWorkbench';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import { RegexResponse } from '@/types';
 
 export default function Home() {
   const [regexData, setRegexData] = useState<RegexResponse | null>(null);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-colors">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="text-2xl">🎯</div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">RegexAI</h1>
-              <p className="text-sm text-gray-600">
-                AI-Powered Regex Generator & Workbench
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content - Split Pane */}
       <div className="flex-1 flex overflow-hidden">
@@ -38,6 +28,9 @@ export default function Home() {
           <TestingWorkbench regexData={regexData} />
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
