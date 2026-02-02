@@ -4,6 +4,7 @@
 import { RegexResponse } from '@/types';
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import RegexTester from './RegexTester';
 
 interface TestingWorkbenchProps {
   regexData: RegexResponse | null;
@@ -65,6 +66,9 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
           </div>
         </div>
 
+        {/* Live Tester - NEW! */}
+        <RegexTester pattern={regexData.pattern} />
+
         {/* Explanation */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-3">
@@ -121,6 +125,33 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
                     {testCase.description}
                   </p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Language Variations */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            Language Variations
+          </h3>
+          <div className="space-y-3">
+            {Object.entries(regexData.languageVariations || {}).map(([lang, pattern]) => (
+              <div key={lang} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-gray-700 mb-1 capitalize">
+                    {lang}
+                  </p>
+                  <code className="text-sm font-mono text-gray-900">
+                    {pattern}
+                  </code>
+                </div>
+                <button
+                  onClick={() => handleCopy(pattern)}
+                  className="ml-4 p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-200 rounded transition-colors"
+                >
+                  <Copy className="w-4 h-4" />
+                </button>
               </div>
             ))}
           </div>
