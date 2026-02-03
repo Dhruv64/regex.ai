@@ -61,7 +61,7 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
               )}
             </button>
           </div>
-          <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-gray-700 text-green-400 p-4 rounded-lg font-mono text-lg overflow-x-auto">
             {regexData.pattern}
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Explanation
           </h3>
-          <p className="text-gray-700 leading-relaxed">{regexData.explanation}</p>
+          <p className="text-gray-700 dark:text-white leading-relaxed">{regexData.explanation}</p>
         </div>
 
         {/* Breakdown */}
@@ -86,12 +86,12 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
             {regexData.breakdown.map((item, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-3 bg-gray-50 rounded-lg"
+                className="flex gap-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
               >
-                <code className="font-mono text-sm text-blue-600 font-semibold shrink-0">
+                <code className="font-mono text-sm text-green-400 font-semibold shrink-0">
                   {item.component}
                 </code>
-                <p className="text-sm text-gray-700">{item.description}</p>
+                <p className="text-sm text-gray-700 dark:text-white">{item.description}</p>
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
             {regexData.testCases.map((testCase, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
+                className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
               >
                 <span
                   className={`shrink-0 px-2 py-1 rounded text-xs font-medium ${testCase.shouldMatch
@@ -117,10 +117,10 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
                   {testCase.shouldMatch ? 'Match' : 'No Match'}
                 </span>
                 <div className="flex-1">
-                  <code className="text-sm font-mono text-gray-900">
+                  <code className="text-sm font-mono text-gray-900 dark:text-white">
                     {testCase.input}
                   </code>
-                  <p className="text-xs text-gray-600 mt-1">
+                  <p className="text-xs text-gray-600 dark:text-gray-50 mt-1">
                     {testCase.description}
                   </p>
                 </div>
@@ -136,12 +136,12 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
           </h3>
           <div className="space-y-3">
             {Object.entries(regexData.languageVariations || {}).map(([lang, pattern]) => (
-              <div key={lang} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div key={lang} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-700 mb-1 capitalize">
+                  <p className="text-sm font-medium text-gray-700 dark:text-white mb-1 capitalize">
                     {lang}
                   </p>
-                  <code className="text-sm font-mono text-gray-900">
+                  <code className="text-sm font-mono text-gray-900 dark:text-white">
                     {pattern}
                   </code>
                 </div>
