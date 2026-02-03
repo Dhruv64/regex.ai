@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -22,7 +23,13 @@ export default function Header() {
       <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-3">
-            <div className="text-2xl">🎯</div>
+            <Image
+              src="/icon.png"
+              alt="RegexAI Logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+            />
             <div>
               <h1 className="text-xl font-bold text-gray-900 dark:text-white">RegexAI</h1>
               <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -51,7 +58,13 @@ export default function Header() {
           )}
           
           <Link href="/" className="flex items-center gap-3">
-            <div className="text-2xl">🎯</div>
+            <Image
+              src={theme === 'dark' ? '/icon-dark.png' : '/icon.png'}
+              alt="RegexAI Logo"
+              width={40}
+              height={40}
+              className="rounded-lg hover:opacity-80 transition-opacity"
+            />
             <div>
               <h1 className="text-xl font-bold text-gray-900 dark:text-white">RegexAI</h1>
               <p className="text-sm text-gray-600 dark:text-gray-400">

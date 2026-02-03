@@ -199,7 +199,7 @@ export default function LandingPage() {
                 </p>
               </div>
               {/* Connector line */}
-              <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+              <div className="hidden md:block absolute ml-8 top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>
             </div>
 
             {/* Step 2 */}
@@ -216,7 +216,7 @@ export default function LandingPage() {
                 </p>
               </div>
               {/* Connector line */}
-              <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-purple-500 to-green-500"></div>
+              <div className="hidden md:block absolute ml-8 top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-purple-500 to-green-500"></div>
             </div>
 
             {/* Step 3 */}
