@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Sparkles, FlaskConical, Zap, Code, TestTube, Target, ArrowRight, CheckCircle } from 'lucide-react';
+import { Sparkles, FlaskConical, Zap, Code, TestTube, Target, ArrowRight, CheckCircle, Github, Star } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -11,8 +11,8 @@ export default function LandingPage() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 transition-colors">
       <Header />
 
-      {/* Hero Section */}
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-20 md:py-32">
           <div className="text-center">
             {/* Badge */}
@@ -57,14 +57,26 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white dark:border-gray-900"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white dark:border-gray-900"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white dark:border-gray-900"></div>
+            {/* Open Source Badge */}
+            <div className="inline-flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm">
+              <Github className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-gray-600 dark:text-gray-400">This is an Open Source Project</span>
+                <span className="text-gray-300 dark:text-gray-700">•</span>
+                <a
+                  href="https://github.com/Dhruv64/regex.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-medium flex items-center gap-1"
+                >
+                  View on GitHub
+                  <ArrowRight className="w-3 h-3" />
+                </a>
               </div>
-              <span>Trusted by developers worldwide</span>
+              <div className="flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-md">
+                <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Star</span>
+              </div>
             </div>
           </div>
         </section>
@@ -254,6 +266,6 @@ export default function LandingPage() {
       </main>
 
       <Footer />
-    </div>
+    </div >
   );
 }
