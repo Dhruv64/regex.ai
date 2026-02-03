@@ -88,7 +88,7 @@ export default function TestingWorkbench({ regexData }: TestingWorkbenchProps) {
                 key={index}
                 className="flex gap-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
               >
-                <code className="font-mono text-sm text-green-400 font-semibold shrink-0">
+                <code className="font-mono text-sm text-blue-600 dark:text-blue-400 font-semibold shrink-0">
                   {item.component}
                 </code>
                 <p className="text-sm text-gray-700 dark:text-white">{item.description}</p>

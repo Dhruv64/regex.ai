@@ -68,7 +68,7 @@ export default function Footer() {
             </a>
 
             {/* Buy Me a Coffee */}
-            < a
+            {/* < a
               href="https://buymeacoffee.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,7 +77,7 @@ export default function Footer() {
             >
               <Coffee className="w-5 h-5 text-gray-900" />
               <span className="text-sm font-medium text-gray-900">Buy me a coffee</span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
