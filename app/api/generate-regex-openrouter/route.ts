@@ -1,13 +1,55 @@
-// app/api/generate-regex-deepseek/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenRouter } from '@openrouter/sdk';
+import { ratelimit } from '@/lib/rate-limit';
 
 const openrouter = new OpenRouter({
   apiKey: process.env.OPENROUTER_API_KEY,
 });
 
+// Helper function to get IP address
+function getIP(request: NextRequest): string {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const realIp = request.headers.get('x-real-ip');
+  
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  
+  if (realIp) {
+    return realIp;
+  }
+  
+  return 'anonymous';
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Get IP address for rate limiting
+    const ip = getIP(request);
+
+    // Check rate limit
+    const { success, limit, reset, remaining } = await ratelimit.limit(ip);
+
+    if (!success) {
+      const resetDate = new Date(reset);
+      return NextResponse.json(
+        { 
+          error: `Rate limit exceeded. You can make ${limit} requests per day. Try again after ${resetDate.toLocaleString()}.`,
+          limit,
+          remaining: 0,
+          reset: resetDate.toISOString(),
+        },
+        { 
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': limit.toString(),
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': reset.toString(),
+          }
+        }
+      );
+    }
+
     const { prompt } = await request.json();
 
     if (!prompt || typeof prompt !== 'string') {
@@ -57,7 +99,7 @@ CRITICAL:
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt }
       ],
-      stream: false, // We want the full response, not streaming
+      stream: false,
     });
 
     const responseContent = completion.choices[0]?.message?.content;
@@ -102,7 +144,15 @@ CRITICAL:
       }
     }
 
-    return NextResponse.json(regexData);
+    // Return successful response with rate limit headers
+    return NextResponse.json(regexData, {
+      headers: {
+        'X-RateLimit-Limit': limit.toString(),
+        'X-RateLimit-Remaining': remaining.toString(),
+        'X-RateLimit-Reset': reset.toString(),
+      }
+    });
+
   } catch (error) {
     console.error('Error generating regex:', error);
     
