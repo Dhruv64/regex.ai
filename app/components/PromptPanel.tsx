@@ -24,7 +24,7 @@ export default function PromptPanel({ onGenerate }: PromptPanelProps) {
     setError(null);
 
     try {
-      const response = await fetch('/api/generate-regex-mock', {
+      const response = await fetch('/api/generate-regex-openrouter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,29 +14,12 @@ export default function Footer() {
               Built with ❤️ by Dhruv
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-500">
-              Helping developers write regex since 2025
+              Come support me on my socials
             </p>
           </div>
 
           {/* Right side - Social links */}
           <div className="flex items-center gap-4">
-            {/* Twitter/X */}
-            < a
-              href="https://twitter.com/yourhandle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
-              aria-label="Twitter"
-            >
-              <svg
-                className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
 
             {/* LinkedIn */}
             < a
@@ -64,7 +47,25 @@ export default function Footer() {
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" />
+              <Github className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-white" />
+            </a>
+
+            {/* Twitter/X */}
+            < a
+              href="https://twitter.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
+              aria-label="Twitter"
+            >
+              <svg
+                className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-500"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
 
             {/* Buy Me a Coffee */}
