@@ -41,7 +41,7 @@ export default function Footer() {
 
             {/* GitHub */}
             < a
-              href="https://github.com/yourusername"
+              href="https://github.com/Dhruv64" 
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
@@ -52,7 +52,7 @@ export default function Footer() {
 
             {/* Twitter/X */}
             < a
-              href="https://twitter.com/yourhandle"
+              href="https://x.com/Dhruv99769545"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
