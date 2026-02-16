@@ -11,7 +11,7 @@ const redis = new Redis({
 // Rate limit: 10 requests per day per IP
 export const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(1, '1 d'), // 10 requests per 24 hours
+  limiter: Ratelimit.slidingWindow(10, '1 d'), // 10 requests per 24 hours
   analytics: true,
   prefix: 'regex-ai',
 });
